@@ -56,6 +56,8 @@ reg [63:0] i;
 initial i = 0;
 
 reg [31:0] cordic_angle; 
+reg [31:0] cordic_angle_2;
+reg [31:0] cordic_angle_3;
 reg [9:0] trig_table_angle; 
 wire [$clog2(360)-1:0] out;
 
@@ -76,6 +78,7 @@ counter#(.step(1), .mod(360)) cntr( // counter from 0 to 360 - angle;
 //     i = i + 1;
 // end 
 
+//Idea: implement clk divider for speed of color change;
 assign cordic_angle = ((1 << 32)*out)/360; // to-do добавить еще 2 для сдвинутых sin.
 
 reg [15:0] Xin, Yin;
@@ -85,8 +88,8 @@ begin
     Xin = 32000/1.647;
     Yin = 0;
 end
-
-CORDIC uut1 (
+//TO-DO: connect output from all CORDIC algos to the wires, then use them in PWM section.
+CORDIC red (
     .clk(clk), 
     .angle(cordic_angle), 
     .Xin(Xin), 
@@ -94,8 +97,56 @@ CORDIC uut1 (
     .COS_OUT(Xout), 
     .SIN_OUT(Yout)
 );
+
+CORDIC green (
+    .clk(clk), 
+    .angle(cordic_angle), 
+    .Xin(Xin), 
+    .Yin(Yin), 
+    .COS_OUT(Xout), 
+    .SIN_OUT(Yout)
+);
+
+CORDIC blue (
+    .clk(clk), 
+    .angle(cordic_angle), 
+    .Xin(Xin), 
+    .Yin(Yin), 
+    .COS_OUT(Xout), 
+    .SIN_OUT(Yout)
+);
+
 assign cos_cordic = Xout;
-assign sin_cordic = Yout;
+assign sin_cordic = Yout; // calculated sin via CORDIC
+
+
+//-------------------------------PWM------------------------------------
+wire pwm_out;
+
+// Instantiate the pwm's for r,g,b, then make them dependent on CORDIC.
+PWM_FSM #(.SIZE(4)) pwm_r (
+    .clk(clk),
+    .reset(1'b0),
+    .clk_en(1'b1),
+    .pwm_in(sin_cordic),
+    .pwm_out(pwm_out)
+);
+
+PWM_FSM #(.SIZE(4)) pwm_g (
+    .clk(clk),
+    .reset(1'b0),
+    .clk_en(1'b1),
+    .pwm_in(sin_cordic),
+    .pwm_out(pwm_out)
+);
+
+PWM_FSM #(.SIZE(4)) pwm_b (
+    .clk(clk),
+    .reset(1'b0),
+    .clk_en(1'b1),
+    .pwm_in(sin_cordic),
+    .pwm_out(pwm_out)
+);
 
 
 endmodule
