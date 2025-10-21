@@ -2,7 +2,7 @@
 module COMPARE_TEST_TRIG;
 
 localparam pi = 3.14159265;
-// Несинтезируемые функции расчётов синуса и косинуса по ряду Тейлора
+// РќРµСЃРёРЅС‚РµР·РёСЂСѓРµРјС‹Рµ С„СѓРЅРєС†РёРё СЂР°СЃС‡С‘С‚РѕРІ СЃРёРЅСѓСЃР° Рё РєРѕСЃРёРЅСѓСЃР° РїРѕ СЂСЏРґСѓ РўРµР№Р»РѕСЂР°
 // ------------------------------------------------------------------
 //`include "tailor.v" 
 
@@ -39,7 +39,7 @@ localparam pi = 3.14159265;
 //end
 
 
-// Генерация последовательности углов
+// Р“РµРЅРµСЂР°С†РёСЏ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё СѓРіР»РѕРІ
 // ----------------------------------
 reg [63:0] i;
 initial i = 0;
@@ -56,14 +56,14 @@ begin
     i = i + 1;
 end 
 
-// Синхросигнал
+// РЎРёРЅС…СЂРѕСЃРёРіРЅР°Р»
 reg clk;
 initial clk = 0;
 always #5 clk <= ~clk;
 
 
   
-// Модуль CORDIC
+// РњРѕРґСѓР»СЊ CORDIC
 // -------------------
 
 
@@ -83,10 +83,15 @@ CORDIC uut1 (
     .COS_OUT(Xout), 
     .SIN_OUT(Yout)
 );
-assign cos_cordic = Xout;
-assign sin_cordic = Yout;
 
-// Табличный модуль
+assign cos_cordic = (Xout[16] == 1'b1) ? ~Xout + 1 : Xout;
+assign sin_cordic = (Yout[16] == 1'b1) ? ~Yout + 1 : Yout;
+
+wire [16:0] cosz, sinz;
+
+assign cosz = Xout + 17'd32768;
+assign sinz = Yout + 17'd32768;
+// РўР°Р±Р»РёС‡РЅС‹Р№ РјРѕРґСѓР»СЊ
 // -------------------
 //localparam TABLE_VALUE_WIDTH = 33;
 //localparam TABLE_ANGLE_WIDTH = 10;

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="36.980000001 ms"></ZoomEndTime>
+      <Cursor1Time time="10.175140000 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="42" />
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/speed_up" type="logic">
+      <obj_property name="ElementShortName">speed_up</obj_property>
+      <obj_property name="ObjectShortName">speed_up</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/speed_down" type="logic">
+      <obj_property name="ElementShortName">speed_down</obj_property>
+      <obj_property name="ObjectShortName">speed_down</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/brightness_up" type="logic">
+      <obj_property name="ElementShortName">brightness_up</obj_property>
+      <obj_property name="ObjectShortName">brightness_up</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/brightness_down" type="logic">
+      <obj_property name="ElementShortName">brightness_down</obj_property>
+      <obj_property name="ObjectShortName">brightness_down</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/error_output" type="logic">
+      <obj_property name="ElementShortName">error_output</obj_property>
+      <obj_property name="ObjectShortName">error_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/pwm_out" type="logic">
+      <obj_property name="ElementShortName">pwm_out</obj_property>
+      <obj_property name="ObjectShortName">pwm_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test_case" type="array">
+      <obj_property name="ElementShortName">test_case[31:0]</obj_property>
+      <obj_property name="ObjectShortName">test_case[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/pwm_high_count" type="array">
+      <obj_property name="ElementShortName">pwm_high_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pwm_high_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/pwm_total_count" type="array">
+      <obj_property name="ElementShortName">pwm_total_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pwm_total_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/pwm_duty_cycle" type="other">
+      <obj_property name="ElementShortName">pwm_duty_cycle</obj_property>
+      <obj_property name="ObjectShortName">pwm_duty_cycle</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_up" type="logic">
+      <obj_property name="ElementShortName">speed_up</obj_property>
+      <obj_property name="ObjectShortName">speed_up</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_down" type="logic">
+      <obj_property name="ElementShortName">speed_down</obj_property>
+      <obj_property name="ObjectShortName">speed_down</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_up" type="logic">
+      <obj_property name="ElementShortName">brightness_up</obj_property>
+      <obj_property name="ObjectShortName">brightness_up</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_down" type="logic">
+      <obj_property name="ElementShortName">brightness_down</obj_property>
+      <obj_property name="ObjectShortName">brightness_down</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/error_output" type="logic">
+      <obj_property name="ElementShortName">error_output</obj_property>
+      <obj_property name="ObjectShortName">error_output</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/pwm_out" type="logic">
+      <obj_property name="ElementShortName">pwm_out</obj_property>
+      <obj_property name="ObjectShortName">pwm_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed" type="array">
+      <obj_property name="ElementShortName">speed[7:0]</obj_property>
+      <obj_property name="ObjectShortName">speed[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_up_signal" type="logic">
+      <obj_property name="ElementShortName">speed_up_signal</obj_property>
+      <obj_property name="ObjectShortName">speed_up_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_up_signal_en" type="logic">
+      <obj_property name="ElementShortName">speed_up_signal_en</obj_property>
+      <obj_property name="ObjectShortName">speed_up_signal_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_down_signal" type="logic">
+      <obj_property name="ElementShortName">speed_down_signal</obj_property>
+      <obj_property name="ObjectShortName">speed_down_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/speed_down_signal_en" type="logic">
+      <obj_property name="ElementShortName">speed_down_signal_en</obj_property>
+      <obj_property name="ObjectShortName">speed_down_signal_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_up_signal" type="logic">
+      <obj_property name="ElementShortName">brightness_up_signal</obj_property>
+      <obj_property name="ObjectShortName">brightness_up_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_up_signal_en" type="logic">
+      <obj_property name="ElementShortName">brightness_up_signal_en</obj_property>
+      <obj_property name="ObjectShortName">brightness_up_signal_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_down_signal" type="logic">
+      <obj_property name="ElementShortName">brightness_down_signal</obj_property>
+      <obj_property name="ObjectShortName">brightness_down_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/brightness_down_signal_up" type="logic">
+      <obj_property name="ElementShortName">brightness_down_signal_up</obj_property>
+      <obj_property name="ObjectShortName">brightness_down_signal_up</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/i" type="array">
+      <obj_property name="ElementShortName">i[63:0]</obj_property>
+      <obj_property name="ObjectShortName">i[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/cordic_angle" type="array">
+      <obj_property name="ElementShortName">cordic_angle[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cordic_angle[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/cordic_angle_2" type="array">
+      <obj_property name="ElementShortName">cordic_angle_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cordic_angle_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/cordic_angle_3" type="array">
+      <obj_property name="ElementShortName">cordic_angle_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cordic_angle_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/trig_table_angle" type="array">
+      <obj_property name="ElementShortName">trig_table_angle[9:0]</obj_property>
+      <obj_property name="ObjectShortName">trig_table_angle[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/out" type="array">
+      <obj_property name="ElementShortName">out[8:0]</obj_property>
+      <obj_property name="ObjectShortName">out[8:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/Xin" type="array">
+      <obj_property name="ElementShortName">Xin[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Xin[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/Yin" type="array">
+      <obj_property name="ElementShortName">Yin[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Yin[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/Xout" type="array">
+      <obj_property name="ElementShortName">Xout[16:0]</obj_property>
+      <obj_property name="ObjectShortName">Xout[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/Yout" type="array">
+      <obj_property name="ElementShortName">Yout[16:0]</obj_property>
+      <obj_property name="ObjectShortName">Yout[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/cos_cordic" type="array">
+      <obj_property name="ElementShortName">cos_cordic[16:0]</obj_property>
+      <obj_property name="ObjectShortName">cos_cordic[16:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/sin_cordic" type="array">
+      <obj_property name="ElementShortName">sin_cordic[16:0]</obj_property>
+      <obj_property name="ObjectShortName">sin_cordic[16:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/pi" type="other">
+      <obj_property name="ElementShortName">pi</obj_property>
+      <obj_property name="ObjectShortName">pi</obj_property>
+   </wvobject>
+</wave_config>

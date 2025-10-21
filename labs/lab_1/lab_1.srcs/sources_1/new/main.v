@@ -1,10 +1,11 @@
 `timescale 1ns / 1ps
 module main(
-    input clk, speed_up, speed_down, brightness_up, brightness_down,
-    output reg error_output
+    input clk, speed_up, speed_down, brightness_up, brightness_down, rst,
+    output reg error_output,
+    output pwm_out
 );
 
-reg [7:0] speed = 8'd128; // Speed of color change
+reg [7:0] speed = 8'd1; // Speed of color change
 
 // debouncers for 4 buttons
 wire speed_up_signal, speed_up_signal_en;
@@ -49,7 +50,7 @@ filtercon #(128) dbnc_brt_down(
 //     .clk_div(clk_div)
 // );
 
-// Sin gerenation via CORDIC
+// ---------------Sin generation via CORDIC------------------------
 localparam pi = 3.14159265;
 
 reg [63:0] i;
@@ -79,7 +80,13 @@ counter#(.step(1), .mod(360)) cntr( // counter from 0 to 360 - angle;
 // end 
 
 //Idea: implement clk divider for speed of color change;
-assign cordic_angle = ((1 << 32)*out)/360; // to-do добавить еще 2 для сдвинутых sin.
+always @ (posedge clk)
+    // cordic_angle = ((1 << 32)*out)/360; // to-do add 2 more for +2pi/3 & -pi/3
+    // cordic_angle <= (32'd4294967295 * {23'b0, out}) / 360;
+    // cordic_angle <= (32'd4294967296 * out) / 360;
+    cordic_angle = ((1 << 32)*{56'b0, out})/360;
+    
+
 
 reg [15:0] Xin, Yin;
 wire [16:0] Xout, Yout, cos_cordic, sin_cordic;
@@ -98,55 +105,55 @@ CORDIC red (
     .SIN_OUT(Yout)
 );
 
-CORDIC green (
-    .clk(clk), 
-    .angle(cordic_angle), 
-    .Xin(Xin), 
-    .Yin(Yin), 
-    .COS_OUT(Xout), 
-    .SIN_OUT(Yout)
-);
+// CORDIC green (
+//     .clk(clk), 
+//     .angle(cordic_angle), 
+//     .Xin(Xin), 
+//     .Yin(Yin), 
+//     .COS_OUT(Xout), 
+//     .SIN_OUT(Yout)
+// );
 
-CORDIC blue (
-    .clk(clk), 
-    .angle(cordic_angle), 
-    .Xin(Xin), 
-    .Yin(Yin), 
-    .COS_OUT(Xout), 
-    .SIN_OUT(Yout)
-);
+// CORDIC blue (
+//     .clk(clk), 
+//     .angle(cordic_angle), 
+//     .Xin(Xin), 
+//     .Yin(Yin), 
+//     .COS_OUT(Xout), 
+//     .SIN_OUT(Yout)
+// );
 
 assign cos_cordic = Xout;
-assign sin_cordic = Yout; // calculated sin via CORDIC
-
+assign sin_cordic = (Yout + 17'd32768); // calculated sin via CORDIC
+//31994 - max value
+///-31998 - min value;
 
 //-------------------------------PWM------------------------------------
-wire pwm_out;
+
 
 // Instantiate the pwm's for r,g,b, then make them dependent on CORDIC.
-PWM_FSM #(.SIZE(4)) pwm_r (
+PWM_FSM #(.SIZE($clog2(64000))) pwm_r (
     .clk(clk),
-    .reset(1'b0),
+    .reset(rst),
     .clk_en(1'b1),
-    .pwm_in(sin_cordic),
+    .pwm_in(sin_cordic), // signed -> unsigned.
     .pwm_out(pwm_out)
 );
 
-PWM_FSM #(.SIZE(4)) pwm_g (
-    .clk(clk),
-    .reset(1'b0),
-    .clk_en(1'b1),
-    .pwm_in(sin_cordic),
-    .pwm_out(pwm_out)
-);
+// PWM_FSM #(.SIZE(4)) pwm_g (
+//     .clk(clk),
+//     .reset(1'b0),
+//     .clk_en(1'b1),
+//     .pwm_in(sin_cordic),
+//     .pwm_out(pwm_out)
+// );
 
-PWM_FSM #(.SIZE(4)) pwm_b (
-    .clk(clk),
-    .reset(1'b0),
-    .clk_en(1'b1),
-    .pwm_in(sin_cordic),
-    .pwm_out(pwm_out)
-);
-
+// PWM_FSM #(.SIZE(4)) pwm_b (
+//     .clk(clk),
+//     .reset(1'b0),
+//     .clk_en(1'b1),
+//     .pwm_in(sin_cordic),
+//     .pwm_out(pwm_out)
+// );
 
 endmodule

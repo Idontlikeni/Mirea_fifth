@@ -1,4 +1,17 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/CORDIC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CORDIC
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/PWM_FSM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PWM_FSM
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sim_1/new/PWM_testbench.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module PWM_testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/dtrigger.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dtrigger
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/filtercon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module filtercon
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sources_1/new/synchro.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module synchro
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sim_1/new/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+WARNING: [VRFC 10-9031] illegal cast without ' [D:/Fifth_semestr/labs/lab_1/lab_1.srcs/sim_1/new/testbench.v:149]
