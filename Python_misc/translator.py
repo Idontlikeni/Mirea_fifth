@@ -91,8 +91,7 @@ def to_binary(command, args):
         args_bin.append('0' * 10)
         args_bin.append(format(args[0], '05b'))
     elif(command == "MTR"):
-        args_bin.append(format(args[1], '04b'))
-        args_bin.append('0')
+        args_bin.append(format(args[1], '05b'))
         args_bin.append(format(args[0], '04b'))
     else:
         for i in range(len(bytes[opcodes[command]])):
@@ -117,7 +116,7 @@ def to_binary(command, args):
     return binary_string
 
 def main():
-    with open('commands3.txt', 'r') as f:
+    with open('commands.txt', 'r') as f:
         lines = f.readlines()
     
     for line in lines:

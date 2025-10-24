@@ -88,7 +88,7 @@ always@(posedge clk)
                 LTM: opB <= literal;
                 JL, SUM, SUB: opB <= RF[addr_r_2];
                 MTRK: opB <= mem[opA];
-                RTM: opA <= RF[addr_r_1];
+                RTM: opB <= RF[addr_r_1];
             endcase
 
 always@(posedge clk)
@@ -111,7 +111,7 @@ always@(posedge clk)
     else
         if(stage_counter == 4)
             case (cop)
-                JL: if(res == 0) pc <= pc + 1; else pc <= addr_to_jmp;
+                JL: if(res == 1) pc <= pc + 1; else pc <= addr_to_jmp;
                 JMP: pc <= addr_to_jmp;
                 default: pc <= pc + 1;
             endcase
